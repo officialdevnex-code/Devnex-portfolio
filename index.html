@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevNex Agency | Professional Web Development | Branding | E-Commerce Solutions | Karachi</title>
+    <link rel="stylesheet" href="./style.css">
+    <meta name="description"
+        content="DevNex Agency Karachi - Professional web development services, branding agency, e-commerce solutions, digital marketing, and Shopify development. Get your portfolio website for $50. SEO optimized digital solutions.">
+    <meta name="keywords"
+        content="DevNex Agency Karachi, web development company Pakistan, branding agency Karachi, e-commerce solutions Pakistan, Shopify experts Pakistan, digital marketing services, SEO services Karachi, portfolio website development, professional website design, Syed Ghina Ul Hassan, Aptech Karachi student, software development company">
+    <meta name="author" content="DevNex Agency - Syed Ghina Ul Hassan">
+
+    <!-- Loading Screen Styles -->
+    <style>
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2a2d7c, #1a1a2e);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            animation: rotate 3s linear infinite, pulse 2s infinite;
+            box-shadow: 0 0 30px rgba(248, 183, 57, 0.5);
+            overflow: hidden;
+            border: 3px solid #f8b739;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(248, 183, 57, 0.5);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(248, 183, 57, 0.7);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(248, 183, 57, 0.5);
+            }
+        }
+
+        .loading-logo-text {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #f8b739;
+            font-family: 'Montserrat', sans-serif;
+            animation: textGlow 2s infinite;
+        }
+
+        @keyframes textGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(248, 183, 57, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(248, 183, 57, 0.8);
+            }
+        }
+
+        .loading-logo-text span {
+            color: white;
+        }
+
+        .loading-text {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .loading-spinner {
+            width: 45px;
+            height: 45px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #f8b739;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-progress {
+            width: 220px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #f8b739, #ffcc5c);
+            width: 0%;
+            animation: progress 9s linear forwards;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+
+            10% {
+                width: 12%;
+            }
+
+            25% {
+                width: 28%;
+            }
+
+            40% {
+                width: 45%;
+            }
+
+            55% {
+                width: 62%;
+            }
+
+            70% {
+                width: 78%;
+            }
+
+            85% {
+                width: 92%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .loading-quote {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-top: 25px;
+            text-align: center;
+            max-width: 500px;
+            padding: 0 20px;
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+        }
+
+        .loading-counter {
+            color: #f8b739;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 12px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Hide loading screen when loaded */
+        .loaded #loading-screen {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive Loading Screen */
+        @media (max-width: 768px) {
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .loading-logo-text {
+                font-size: 2.8rem;
+            }
+
+            .loading-text {
+                font-size: 1.1rem;
+            }
+
+            .loading-progress {
+                width: 180px;
+            }
+
+            .loading-quote {
+                font-size: 0.85rem;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-circle {
+                width: 70px;
+                height: 70px;
+            }
+
+            .loading-logo-text {
+                font-size: 2.2rem;
+            }
+
+            .loading-text {
+                font-size: 0.95rem;
+            }
+
+            .loading-progress {
+                width: 160px;
+            }
+
+            .loading-quote {
+                font-size: 0.8rem;
+                padding: 0 10px;
+            }
+        }
+    </style>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2a2d7c;
+            --secondary-color: #f8b739;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --accent-color: #4a4fc5;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand span {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            padding: 8px 15px !important;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: rgba(248, 183, 57, 0.1);
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(42, 45, 124, 0.9), rgba(42, 45, 124, 0.85)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 150px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-section .lead {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(248, 183, 57, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Team Banner - FIXED TEXT COLOR */
+        .team-banner {
+            background: rgb(255, 253, 253);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid var(--secondary-color);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .team-banner:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-banner h5 {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .team-banner p {
+            color: #333 !important;
+        }
+
+        .team-banner .small {
+            color: #555 !important;
+        }
+
+        .team-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .team-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #e6a328);
+            border: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(248, 183, 57, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(248, 183, 57, 0.4);
+            color: var(--dark-color);
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(248, 183, 57, 0.3);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #128C7E, #25D366);
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px auto 20px;
+            color: rgb(15, 15, 15);
+            font-size: 1.8rem;
+            box-shadow: 0 8px 20px rgba(42, 45, 124, 0.2);
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: none;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(42, 45, 124, 0.9));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        /* Package Cards */
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 2px solid #eee;
+            position: relative;
+        }
+
+        .package-card.popular {
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(248, 183, 57, 0.2);
+        }
+
+        .package-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 5px 35px;
+            font-size: 11px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 15px 0;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            border-top: 5px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Footer - FIXED LOGO */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), #0f0f1f);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .footer-links a {
+            color: #ccc;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-section {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .package-card.popular {
+                transform: scale(1);
+                margin: 20px 0;
+            }
+
+            .team-banner {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.6rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-section {
+                background-attachment: scroll;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .team-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .package-card.popular::before {
+                right: -30px;
+                font-size: 10px;
+                padding: 4px 30px;
+            }
+
+            .footer-logo {
+                font-size: 1.8rem;
+            }
+
+            .footer-logo img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1rem;
+            }
+
+            .btn-primary,
+            .btn-outline-primary {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .package-price {
+                font-size: 2.5rem;
+            }
+
+            .team-img {
+                height: 200px;
+            }
+
+            .team-banner {
+                padding: 20px 15px;
+            }
+
+            .team-image {
+                width: 70px;
+                height: 70px;
+            }
+
+            .footer-logo {
+                font-size: 1.6rem;
+            }
+
+            .footer-logo img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-section h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+
+            .team-banner {
+                padding: 15px 10px;
+            }
+
+            .team-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .footer-logo {
+                font-size: 1.4rem;
+            }
+
+            .footer-logo img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-logo-container">
+            <div class="logo-circle">
+                <img src="./assets/WhatsApp Image 2026-01-02 at 10.21.34 AM.jpeg" alt="DevNex Agency Logo">
+            </div>
+            <div class="loading-logo-text">Dev<span>Nex</span></div>
+        </div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Welcome to DevNex Agency</div>
+        <div class="loading-counter">Loading... <span id="counter">0</span>%</div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+        <div class="loading-quote">"Empowering Brands Through Digital Excellence - Building Digital Identities That
+            Inspire Growth and Success"</div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923313531509?text=Hello%20DevNex%20Agency,%20I%20am%20interested%20in%20your%20services"
+        class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-2" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span>D)</span>DevNex
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#packages">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-12">
+                    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="hero-badge">#1 Digital Agency in Karachi</span>
+                        <h1>Build a Professional <span class="text-warning">PORTFOLIO WEBSITE</span></h1>
+                        <p class="lead">"Boost Your Career with a Professional Look" We create stunning portfolio
+                            websites that showcase your skills and projects to help you stand out in the competitive
+                            market.</p>
+                        <div class="mt-4 d-flex flex-wrap gap-3">
+                            <a href="#packages" class="btn btn-primary btn-lg">
+                                <i class="fas fa-rocket me-2"></i> View Packages
+                            </a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-calendar-check me-2"></i> Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 mt-5 mt-lg-0">
+                    <div class="team-banner" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                        <h5 class="mb-4 text-primary">Meet Our Leadership Team</h5>
+                        <div class="row g-3">
+                            <!-- CEO -->
+                            <div class="col-6 text-center">
+                                <img src="./assets/ghinapic24.jpg" class="team-image"
+                                    alt="Syed Ghina Ul Hassan - CEO & Founder of DevNex Agency" loading="lazy">
+                                <p class="mb-0 small fw-bold text-dark-black">Syed Ghina Ul Hassan</p>
+                                <p class="small text-muted">CEO & Founder Frontend Backend Developer</p>
+                            </div>
+                            <!-- Partner 1 -->
+                            <div class="col-6 text-center">
+                                <img src="./assets/WhatsApp Image 2026-01-01 at 10.44.12 PM.jpeg" class="team-image"
+                                    alt="Muddassir Yousuf - Research Assistant" loading="lazy">
+                                <p class="mb-0 small fw-bold text-dark">Muddassir Yousuf Devnex partner</p>
+                                <p class="small text-muted">Research Assistant Developer</p>
+                            </div>
+                            <!-- Partner 2 -->
+                            <div class="col-6 text-center">
+                                <img src="./assets/WhatsApp Image 2026-01-01 at 10.55.53 PM.jpeg" class="team-image"
+                                    alt="Fahad Habib - Full-Stack Developer" loading="lazy">
+                                <p class="mb-0 small fw-bold text-dark">Fahad Habib Devnex partner</p>
+                                <p class="small text-muted">Full-Stack Developer</p>
+                            </div>
+                            <!-- Partner 3 -->
+                            <div class="col-6 text-center">
+                                <img src="./assets/WhatsApp Image 2026-01-02 at 10.00.45 AM.jpeg" class="team-image"
+                                    alt="Syed Anas Ahmed - MERN Stack Expert" loading="lazy">
+                                <p class="mb-0 small fw-bold text-dark">Syed Anas Ahmed Devnex partner</p>
+                                <p class="small text-muted">MERN Stack Expert</p>
+                            </div>
+                        </div>
+                        <a href="#team" class="btn btn-outline-primary btn-sm mt-3">
+                            <i class="fas fa-users me-1"></i> Meet Full Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <h2 class="section-title" data-aos="fade-up">WELCOME TO DEVNEX AGENCY</h2>
+                    <p class="lead fw-semibold mb-4" data-aos="fade-up" data-aos-delay="100">Welcome to DevNex
+                        Empowering Brands Through Digital Excellence in Karachi, Pakistan.</p>
+                    <p data-aos="fade-up" data-aos-delay="200">At <strong>DevNex Agency Karachi</strong>, we specialize
+                        in professional <strong>web development services</strong>, <strong>branding solutions</strong>,
+                        and <strong>e-commerce development</strong>. Our team of experts combines innovation,
+                        creativity, and strategy to deliver stunning results that elevate your brand above the
+                        competition.</p>
+                    <p data-aos="fade-up" data-aos-delay="300">As a full-service digital agency based in Karachi, we
+                        offer comprehensive solutions including <strong>Shopify development</strong>, <strong>digital
+                            marketing services</strong>, <strong>SEO optimization</strong>, and <strong>social media
+                            management</strong>. From concept to conversion, DevNex helps businesses grow smarter, rank
+                        higher, and sell faster in today's competitive digital landscape.</p>
+                    <p data-aos="fade-up" data-aos-delay="400">Let's transform your vision into a digital masterpiece
+                        with DevNex Agency, your success is our strategy. We provide <strong>SEO optimized
+                            websites</strong>, <strong>responsive design</strong>, and <strong>professional digital
+                            solutions</strong> for businesses of all sizes.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-4 bg-white rounded-3 shadow-medium" data-aos="zoom-in" data-aos-delay="500">
+                        <h4 class="mb-4 text-primary">Our Expertise</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Professional Web Development Services</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Branding & Identity Design</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>E-Commerce Solutions Pakistan</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Digital Marketing Strategy</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>SEO Optimization Services Karachi</span>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Social Media Management</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section-padding team-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center-title" data-aos="fade-up">MEET OUR PROFESSIONAL TEAM</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">The leadership and experts behind
+                        DevNex Agency's success in Karachi</p>
+                </div>
+            </div>
+
+            <!-- CEO Card -->
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="team-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="./assets/ghinapic24.jpg" class="team-img w-100 h-100"
+                                    alt="Syed Ghina Ul Hassan - CEO & Founder of DevNex Agency" loading="lazy">
+                                <div class="team-overlay">
+                                    <div>
+                                        <h5 class="text-white mb-1">Syed Ghina Ul Hassan</h5>
+                                        <p class="text-light mb-0">CEO & Founder</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="p-4">
+                                    <h3 class="text-primary mb-3">Syed Ghina Ul Hassan</h3>
+                                    <p class="text-muted mb-4"><strong>CEO & Founder Experties Frontend |Backend
+                                            Developer Web Developer | UI/UX Designer and Digital Marketing Social media
+                                            Management</strong></p>
+                                    <p class="mb-4">Visionary leader with extensive experience in digital solutions.
+                                        Leads the strategy and innovation at DevNex Agency, ensuring exceptional results
+                                        for every client. Passionate about creating modern, responsive websites and
+                                        providing top-notch digital solutions.</p>
+
+                                    <div class="mb-4">
+                                        <h6 class="text-primary">Education</h6>
+                                        <p class="mb-1"><strong>Aptech Learning Institute Karachi</strong> (2024 -
+                                            Present)</p>
+                                        <p class="text-muted mb-3">Higher Diploma in Software Engineering</p>
+                                        <p class="mb-1"><strong>Shah Commerce College</strong> (2024 - Present)</p>
+                                        <p class="text-muted">Intermediate in Commerce</p>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap gap-2 mb-4">
+                                        <span class="badge bg-primary">Project Management</span>
+                                        <span class="badge bg-primary">Web Development</span>
+                                        <span class="badge bg-primary">UI/UX Design</span>
+                                        <span class="badge bg-primary">SEO Optimization</span>
+                                        <span class="badge bg-primary">Digital Marketing</span>
+                                        <span class="badge bg-primary">Leadership</span>
+                                    </div>
+
+                                    <div class="social-icons">
+                                        <a href="https://wa.me/923313531509" target="_blank" aria-label="WhatsApp"
+                                            style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="mailto:svedghina@gmail.com" aria-label="Email"
+                                            style="background: linear-gradient(135deg, #EA4335, #D14836);">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="https://pk.linkedin.com/in/ghina-ul-hassan-507b72326"
+                                            aria-label="LinkedIn"
+                                            style="background: linear-gradient(135deg, #0077B5, #0A66C2);">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://github.com/ghinaulhasan" aria-label="GitHub"
+                                            style="background: linear-gradient(135deg, #333333, #24292e);">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partners Section -->
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h3 class="text-center text-primary" data-aos="fade-up">Our Expert Partners</h3>
+                    <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">Meet our Devnex
+                        partners who bring expertise in different domains</p>
+                </div>
+
+                <!-- Partner 1 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card h-100">
+                        <img src="./assets/WhatsApp Image 2026-01-01 at 10.44.12 PM.jpeg" class="team-img"
+                            alt="Muddassir Yousuf - Research Assistant" loading="lazy">
+                        <div class="p-4">
+                            <h5 class="text-primary mb-2">Muddassir Yousuf</h5>
+                            <p class="text-muted mb-3"><strong>Research Assistant</strong></p>
+                            <p class="small mb-4">Specializes in system architecture, Web management, and scalable web
+                                solutions. Expert in teamwork and design skills with strong research capabilities.</p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-secondary">Research</span>
+                                <span class="badge bg-secondary">Web Management</span>
+                                <span class="badge bg-secondary">Teamwork</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner 2 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card h-100">
+                        <img src="./assets/WhatsApp Image 2026-01-01 at 10.55.53 PM.jpeg" class="team-img"
+                            alt="Fahad Habib - Full-Stack Developer" loading="lazy">
+                        <div class="p-4">
+                            <h5 class="text-primary mb-2">Fahad Habib</h5>
+                            <p class="text-muted mb-3"><strong>Full-Stack Developer</strong></p>
+                            <p class="small mb-4">Creates intuitive user interfaces and robust backend systems.
+                                Specializes in modern web technologies and responsive design with expertise in
+                                full-stack development.</p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-secondary">HTML/CSS/JS</span>
+                                <span class="badge bg-secondary">Bootstrap</span>
+                                <span class="badge bg-secondary">Full-Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner 3 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card h-100">
+                        <img src="./assets/WhatsApp Image 2026-01-02 at 10.00.45 AM.jpeg" class="team-img"
+                            alt="Syed Anas Ahmed - MERN Stack Expert" loading="lazy">
+                        <div class="p-4">
+                            <h5 class="text-primary mb-2">Syed Anas Ahmed</h5>
+                            <p class="text-muted mb-3"><strong>MERN Stack Expert</strong></p>
+                            <p class="small mb-4">Brings extensive expertise in MERN stack development with strategic
+                                thinking to deliver comprehensive solutions for clients. Expert in MongoDB, Express,
+                                React, and Node.js.</p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-secondary">MERN Stack</span>
+                                <span class="badge bg-secondary">Development</span>
+                                <span class="badge bg-secondary">Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center-title" data-aos="fade-up">OUR PROFESSIONAL SERVICES</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Comprehensive digital solutions for
+                        your business growth and online success in Pakistan</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Web Development</h4>
+                        <p class="text-center text-muted">Professional website development services with modern
+                            technologies. We create responsive, fast, and SEO-friendly websites that drive results and
+                            enhance user experience.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Branding Agency</h4>
+                        <p class="text-center text-muted">Complete branding solutions including logo design, brand
+                            guidelines, and visual identity systems that make your business memorable and stand out in
+                            the market.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4 class="text-center mb-3">E-Commerce Solutions</h4>
+                        <p class="text-center text-muted">Custom online stores with Shopify, WooCommerce, and custom
+                            platforms. We build e-commerce websites that convert visitors into customers and boost
+                            online sales.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Digital Marketing</h4>
+                        <p class="text-center text-muted">Strategic digital marketing campaigns including SEO services,
+                            PPC advertising, content marketing, and social media advertising to grow your online
+                            presence.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="text-center mb-3">SEO Optimization</h4>
+                        <p class="text-center text-muted">Professional SEO services to improve your search engine
+                            rankings, drive organic traffic, and increase visibility for your business in search
+                            results.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card h-100 p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Social Media Management</h4>
+                        <p class="text-center text-muted">Complete social media strategy, content creation, and
+                            community management to engage your audience and build brand loyalty across platforms.</p>
+                        <div class="text-center mt-4">
+                            <a href="#contact" class="btn btn-outline-primary btn-sm">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section-padding bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center-title" data-aos="fade-up">OUR PROFESSIONAL PACKAGES</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Choose the perfect package for your
+                        business needs. Affordable pricing with premium quality.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Basic Package -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-card h-100">
+                        <div class="package-header">
+                            <h4 class="mb-3">BASIC PACKAGE</h4>
+                            <div class="package-price">$50</div>
+                            <p class="mb-0">Professional Portfolio Website</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Single Page Website</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Modern User Interface</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Fully Responsive Design</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>SEO Friendly Content</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Skills Showcase Section</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Projects Portfolio Gallery</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Contact Information</span>
+                                </li>
+                                <li class="d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Basic SEO Setup</span>
+                                </li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="https://wa.me/923313531509?text=I'm%20interested%20in%20your%20BASIC%20PACKAGE%20(%2450)%20for%20a%20portfolio%20website"
+                                    class="btn btn-primary w-100" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Package -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="package-card popular h-100">
+                        <div class="package-header">
+                            <h4 class="mb-3">BUSINESS PACKAGE</h4>
+                            <div class="package-price">$199</div>
+                            <p class="mb-0">Complete Business Website</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Everything in Basic Package</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>5 Page Dynamic Website</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Custom Design & Layout</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Advanced SEO Optimization</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Social Media Integration</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Blog/News Section</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Google Analytics Setup</span>
+                                </li>
+                                <li class="d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>6 Months Technical Support</span>
+                                </li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="https://wa.me/923313531509?text=I'm%20interested%20in%20your%20BUSINESS%20PACKAGE%20(%24199)%20for%20a%20business%20website"
+                                    class="btn btn-primary w-100" target="_blank">Get This Package</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Package -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="package-card h-100">
+                        <div class="package-header">
+                            <h4 class="mb-3">CUSTOM PACKAGE</h4>
+                            <div class="package-price">Custom</div>
+                            <p class="mb-0">Tailored Solutions</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>E-Commerce Website Development</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Custom Web Applications</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Complete Branding Package</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Digital Marketing Campaign</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Software System Development</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Enterprise Solutions</span>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Ongoing Maintenance</span>
+                                </li>
+                                <li class="d-flex align-items-start">
+                                    <i class="fas fa-check text-success me-3 mt-1"></i>
+                                    <span>Priority Support</span>
+                                </li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <div class="call-for-pricing">
+                                    <h5 class="mb-3"><i class="fas fa-phone-alt me-2"></i> Call for Pricing</h5>
+                                    <p class="mb-3">Contact us for custom quotes and consultation</p>
+                                    <a href="https://wa.me/923313531509" class="btn btn-success w-100" target="_blank">
+                                        <i class="fab fa-whatsapp me-2"></i> WhatsApp for Quote
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marksheet Management System -->
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-primary shadow-sm" data-aos="fade-up">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i> MARKSHEET MANAGEMENT SYSTEM -
+                                SOFTWARE FOR SALE</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="card-title">Complete Educational Software Solution</h5>
+                                    <p class="card-text">A complete Worksheet Management System developed to automate
+                                        student results with accuracy and speed. Built with HTML, CSS & JavaScript
+                                        ensuring clean UI, responsive design and reliable performance.</p>
+                                    <p><strong>BEST FOR:</strong> Schools, Colleges, Academies & Educational Institutes
+                                        in Pakistan</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="call-for-pricing">
+                                        <h6 class="mb-3"><i class="fas fa-info-circle me-2"></i> SOFTWARE AVAILABLE FOR
+                                            SALE</h6>
+                                        <p class="mb-3">Contact for Demo & Pricing</p>
+                                        <a href="https://wa.me/923313531509" class="btn btn-primary" target="_blank">
+                                            <i class="fab fa-whatsapp me-2"></i> 0331-3531509
+                                        </a>
+                                        <p class="mt-3 mb-0"><small>DESIGN & DEVELOPMENT BY SYED GHINA UL HASSAN</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title center-title" data-aos="fade-up">CONTACT DEVNEX AGENCY</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Get in touch for professional digital
+                        solutions. We're based in Karachi, Pakistan.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-box text-center h-100">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Call Us</h4>
+                        <p class="mb-2">+92 331-3531509</p>
+                        <p class="mb-3 text-muted">Available</p>
+                        <a href="tel:+923313531509" class="btn btn-outline-primary">
+                            <i class="fas fa-phone me-2"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-box text-center h-100">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="mb-3">Email Us</h4>
+                        <p class="mb-2">svedghina@gmail.com</p>
+                        <p class="mb-3 text-muted">Official.devnex@gmail.com</p>
+                        <a href="mailto:svedghina@gmail.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-box text-center h-100">
+                        <div class="contact-icon mx-auto">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4 class="mb-3">WhatsApp</h4>
+                        <p class="mb-2">Quick response via WhatsApp</p>
+                        <p class="mb-3 text-muted">Direct message to CEO</p>
+                        <a href="https://wa.me/923313531509?text=Hello%20DevNex%20Agency,%20I%20need%20information%20about%20your%20services"
+                            class="btn btn-success" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> Message Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Contact Info (Form removed as requested) -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card shadow-medium">
+                        <div class="card-body p-4 p-md-5">
+                            <h4 class="card-title mb-4 text-center">Ready to Start Your Project?</h4>
+                            <p class="text-center mb-4">Contact us directly through WhatsApp, Phone, or Email for quick
+                                consultation and project discussions.</p>
+                            <div class="text-center">
+                                <a href="https://wa.me/923313531509" class="btn btn-primary btn-lg me-3 mb-3"
+                                    target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i> WhatsApp Now
+                                </a>
+                                <a href="tel:+923313531509" class="btn btn-outline-primary btn-lg mb-3">
+                                    <i class="fas fa-phone me-2"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="./assets/WhatsApp Image 2026-01-02 at 10.21.34 AM.jpeg" alt="DevNex Agency Logo">
+                        DevNex
+                    </div>
+                    <p class="mb-4">Professional digital agency providing web development, branding, e-commerce
+                        solutions, and digital marketing services to help businesses grow online in Pakistan.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1H3X1hWrDn/?mibextid=wwXIfr" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/devnexoffical?igsh=MTZwa3R4djk0cXdsYw=="
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/devnex-agency-57752b397?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/923313531509" target="_blank" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5 class="mb-4 text-white">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About DevNex</a>
+                        <a href="#team">Our Team</a>
+                        <a href="#services">Our Services</a>
+                        <a href="#packages">Website Packages</a>
+                        <a href="#contact">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="mb-4 text-white">Our Services</h5>
+                    <div class="footer-links">
+                        <a href="#services">Web Development Services</a>
+                        <a href="#services">Branding Agency Karachi</a>
+                        <a href="#services">E-Commerce Solutions Pakistan</a>
+                        <a href="#services">Digital Marketing</a>
+                        <a href="#services">SEO Optimization Services</a>
+                        <a href="#packages">Portfolio Websites</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5" style="border-color: #444;">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-2">&copy; 2026 DevNex Agency. All rights reserved.</p>
+                    <p class="mb-0">CEO: Syed Ghina Ul Hassan | 3 Partners</p>
+                    <p class="mb-0">Karachi, Pakistan | Professional Digital Solutions Agency</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-2">Designed and Development by DevNex Team</p>
+                    <p class="mb-0">Empowering Brands Through Digital Excellence</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Loading Screen and Smooth Scroll Script -->
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen Functionality
+        window.addEventListener('load', function () {
+            let counter = 0;
+            const counterElement = document.getElementById('counter');
+            const loadingScreen = document.getElementById('loading-screen');
+
+            // Simulate 9-second loading progress
+            const interval = setInterval(() => {
+                if (counter < 100) {
+                    counter += 1;
+                    counterElement.textContent = counter;
+
+                    // Simulate realistic loading increments
+                    if (counter > 70 && counter < 90) {
+                        setTimeout(() => {
+                            counter += Math.floor(Math.random() * 3);
+                            if (counter > 100) counter = 100;
+                            counterElement.textContent = counter;
+                        }, 200);
+                    }
+                } else {
+                    clearInterval(interval);
+
+                    // Hide loading screen after completion
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = '0';
+                        loadingScreen.style.visibility = 'hidden';
+                        document.body.classList.add('loaded');
+                    }, 300);
+                }
+            }, 90); // 90ms * 100 = 9 seconds total
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Update active nav link
+                    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('#mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow');
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.classList.remove('shadow');
+                navbar.style.backgroundColor = 'white';
+                navbar.style.backdropFilter = 'none';
+            }
+
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        backToTopButton.className = 'btn btn-primary rounded-circle';
+        backToTopButton.style.position = 'fixed';
+        backToTopButton.style.bottom = '90px';
+        backToTopButton.style.right = '25px';
+        backToTopButton.style.zIndex = '999';
+        backToTopButton.style.width = '45px';
+        backToTopButton.style.height = '45px';
+        backToTopButton.style.display = 'none';
+        backToTopButton.style.transition = 'all 0.3s ease';
+        backToTopButton.setAttribute('aria-label', 'Back to top');
+
+        document.body.appendChild(backToTopButton);
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+                backToTopButton.style.alignItems = 'center';
+                backToTopButton.style.justifyContent = 'center';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
